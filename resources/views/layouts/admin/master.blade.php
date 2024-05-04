@@ -12,10 +12,10 @@
     @include('layouts.admin.head')
 </head>
 
-<body class="main-body app sidebar-mini">
+<body class="main-body app sidebar-mini" dir="ltr">
     <!-- Loader -->
     <div id="global-loader">
-        <img src="{{ URL::asset('assest_2/img/loader.svg') }}" class="loader-img" alt="Loader">
+        <img src="{{ URL::asset('assets_2/img/loader.svg') }}" class="loader-img" alt="Loader">
     </div>
     <!-- /Loader -->
     @include('layouts.admin.main-sidebar')
@@ -26,6 +26,7 @@
         <div class="container-fluid">
             @yield('page-header')
             @yield('content')
+            @yield('js')
             @include('layouts.admin.sidebar')
             @include('layouts.admin.models')
             @include('layouts.admin.footer')

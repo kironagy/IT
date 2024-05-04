@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}" dir="ltr">
 
 @include('layouts.website.main-head')
 @section('css')

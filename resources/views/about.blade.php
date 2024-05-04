@@ -7,7 +7,7 @@
 @section('content')
     <!-- Banner  -->
     <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark"
-        style="background-image: url(assets/images/banner/bnr1.jpg);">
+        style="background-image: url("assets/images/banner/bnr1.jpg");">
         <div class="container">
             <div class="dz-bnr-inr-entry">
                 <h1>About Us</h1>

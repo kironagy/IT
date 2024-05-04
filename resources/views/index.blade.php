@@ -9,9 +9,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-7 col-lg-7 col-md-12">
-                    <h6 class="sub-title wow fadeInUp" data-wow-delay="0.4s">We Have 208,000+ Live Jobs</h6>
-                    <h1 class=" wow fadeInUp" id="text" data-wow-delay="0.6s">Your <span class=" text-primary">Dream</span>
-                        Job Is Waiting For You</h1>
+                    <h1 class=" wow fadeInUp" id="text" data-wow-delay="0.6s">{{ GetContent('intro_title') }}</h1>
                     <p class=" text text-primary wow fadeInUp font-w500" data-wow-delay="0.8s">Type your
                         keywork, then click search to find your perfect job. </p>
                     <div class="bnr-search-bar wow fadeInUp" data-wow-delay="1.0s">
@@ -42,7 +40,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12  text-lg-end text-md-center text-center">
+                            <div class="text-center col-xl-3 col-lg-4 col-md-3 col-sm-12 text-lg-end text-md-center">
                                 <a class="btn btn-primary w-100" href="javascript:void(0);">Find Jobs</a>
                             </div>
                         </div>
@@ -168,11 +166,11 @@
         </svg>
     </div>
 
-    <section class="content-inner overflow-hidden position-relative">
+    <section class="overflow-hidden content-inner position-relative">
         <div class="container">
-            <div class="section-head text-center">
-                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">Working Process</h6>
-                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">How It Work</h2>
+            <div class="text-center section-head">
+                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">{{ GetContent('work_description') }}</h6>
+                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">{{ GetContent('work_title') }}</h2>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 m-b30">
@@ -218,7 +216,7 @@
         </div>
     </section>
 
-    <section class="content-inner bg-light position-relative overflow-hidden">
+    <section class="overflow-hidden content-inner bg-light position-relative">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 m-b30 ">
@@ -241,26 +239,25 @@
                     <div class="dz-contant style-1">
                         <div class="section-head">
                             <h6 class="text wow fadeInUp" data-wow-delay="1.0s">Compaines</h6>
-                            <h2 class="title wow fadeInUp" data-wow-delay="1.2s">500+ World Top Company Posted
-                                There Job</h2>
+                            <h2 class="title wow fadeInUp" data-wow-delay="1.2s">{{ GetContent('Compaines') }}</h2>
                         </div>
                         <a class="btn btn-primary btn-lg wow fadeInUp" data-wow-delay="1.4s"
-                            href="javascript:void(0);">Find Jobs</a>
+                            href="javascript:void(0);">{{ GetContent('Compaines_button') }}</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-inner overflow-hidden position-relative">
+    <section class="overflow-hidden content-inner position-relative">
         <div class="container">
-            <div class="section-head text-center">
-                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">Jobs Category</h6>
-                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">Choose Your Desire Category </h2>
+            <div class="text-center section-head">
+                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">{{ GetContent('Category_title') }}</h6>
+                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">{{ GetContent('Category_description') }} </h2>
             </div>
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.0s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="1.0s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -280,13 +277,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">UI/Ux Design</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">UI/Ux Design</a></h5>
                             <p class="text"><a href="javascript:void(0);">100+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.2s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="1.2s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -306,13 +303,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Illustration</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Illustration</a></h5>
                             <p class="text"><a href="javascript:void(0);">200+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.4s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="1.4s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -332,13 +329,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Cool Art</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Cool Art</a></h5>
                             <p class="text"><a href="javascript:void(0);">150+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.6s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="1.6s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -358,13 +355,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Web Design</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Web Design</a></h5>
                             <p class="text"><a href="javascript:void(0);">100+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.8s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="1.8s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -384,13 +381,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Produt Design</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Produt Design</a></h5>
                             <p class="text"><a href="javascript:void(0);">100+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="2.0s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="2.0s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -410,13 +407,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Developer</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Developer</a></h5>
                             <p class="text"><a href="javascript:void(0);">200+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="2.2s">
+                    <div class="text-center icon-bx-wraper style-2 wow fadeInUp" data-wow-delay="2.2s">
                         <div class="icon-media">
                             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
                                 viewBox="0 0 71 71">
@@ -436,13 +433,13 @@
                             </svg>
                         </div>
                         <div class="icon-content">
-                            <h5 class="fs-20 mb-0"><a href="javascript:void(0);">Animation</a></h5>
+                            <h5 class="mb-0 fs-20"><a href="javascript:void(0);">Animation</a></h5>
                             <p class="text"><a href="javascript:void(0);">150+Posted New Jobs</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="icon-bx-wraper style-2 bg-primary text-center wow fadeInUp" data-wow-delay="2.4s">
+                    <div class="text-center icon-bx-wraper style-2 bg-primary wow fadeInUp" data-wow-delay="2.4s">
                         <div class="icon-content">
                             <h4 class="title"><a href="javascript:void(0);">100+ More Category</a></h4>
                         </div>
@@ -452,11 +449,11 @@
         </div>
     </section>
 
-    <section class="content-inner overflow-hidden position-relative bg-light">
+    <section class="overflow-hidden content-inner position-relative bg-light">
         <div class="container">
-            <div class="section-head text-center">
-                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">All Jobs Post</h6>
-                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">Find Your Career You Deserve It </h2>
+            <div class="text-center section-head">
+                <h6 class="text wow fadeInUp" data-wow-delay="0.6s">{{ GetContent('Jobs_titles') }}</h6>
+                <h2 class="title wow fadeInUp" data-wow-delay="0.8s">{{ GetContent('Jobs_description') }}</h2>
             </div>
             <div class="row">
                 <div class="col-xl-4 col-md-6">
@@ -599,13 +596,13 @@
         </div>
     </section>
 
-    <section class="content-inner-1 overflow-hidden position-relative bg-white">
+    <section class="overflow-hidden bg-white content-inner-1 position-relative">
         <div class="container">
-            <div class="section-head text-center">
+            <div class="text-center section-head">
                 <h6 class="text wow fadeInUp" data-wow-delay="0.6s">Clents Testimonials</h6>
                 <h2 class="title wow fadeInUp" data-wow-delay="0.8s">What A Job Holder Says About Us.</h2>
             </div>
-            <div class="swiper-container blog-swiper-1 overflow-hidden">
+            <div class="overflow-hidden swiper-container blog-swiper-1">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="dz-card blog-grid style-2 bg-light wow fadeInUp" data-wow-delay="1.0s">
@@ -717,7 +714,7 @@
                         <h2 class="title">Let’s Get Connected And Start Finding Your Dream Job</h2>
                     </div>
                     <div class="text-center text-xl-end col-xl-5">
-                        <a class="btn btn-light btn-lg" href="javascript:void(0);">Create Free Account</a>
+                        <a class="btn btn-light btn-lg" href="javascript:void(0);">{{ GetContent('Card_button') }}</a>
                     </div>
                 </div>
             </div>

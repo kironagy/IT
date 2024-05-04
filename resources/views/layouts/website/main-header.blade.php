@@ -25,8 +25,8 @@
                             <div class="extra-cell">
                                 <button id="quik-search-btn" type="button" class="header-search-btn"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
-                                <a class="btn btn-dark btn-lg btn-shadow" target="_blank"
-                                    href="https://jobick.dexignlab.com/xhtml/page-login.html">login</a>
+                                <a class="btn btn-dark btn-lg btn-shadow"
+                                    href="{{route("login")}}">login</a>
                             </div>
                         </div>
 

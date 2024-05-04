@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="row p-50">
                         <div class="col-lg-3 col-md-12 col-sm-12">
-                            <div class="widget wow fadeInUp text-center text-lg-start" data-wow-delay="1.4s">
+                            <div class="text-center widget wow fadeInUp text-lg-start" data-wow-delay="1.4s">
                                 <div class="footer-logo">
                                     <a href="index.html" class="logo-dark"><img src="assets/images/logo.png"
                                             alt=""></a>
@@ -13,7 +13,7 @@
                                 <div class="widget_getintuch ">
                                     <ul>
                                         <li class="text-center">
-                                            <i class="fa-regular fa-comments"></i>
+                                            <i class="mx-3 fa-regular fa-comments"></i>
                                             Example@job.com
                                         </li>
                                     </ul>
@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                                     <div class="widget widget_links wow fadeInUp" data-wow-delay="1.6s">
-                                        <h4 class="footer-title">Useful Links</h4>
+                                        <h4 class="footer-title">{{ GetContent('footer_links') }}</h4>
                                         <ul>
                                             <li><a href="javascript:void(0);">Find a Job</a></li>
                                             <li><a href="javascript:void(0);">Compaies</a></li>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                                     <div class="widget widget_links wow fadeInUp" data-wow-delay="1.8s">
-                                        <h4 class="footer-title">Category </h4>
+                                        <h4 class="footer-title">{{ GetContent('footer_category') }}</h4>
                                         <ul>
                                             <li><a href="javascript:void(0);">UI Designer</a></li>
                                             <li><a href="javascript:void(0);">UX Designer</a></li>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                                     <div class="widget widget_links wow fadeInUp" data-wow-delay="2.0s">
-                                        <h4 class="footer-title">Follow Us</h4>
+                                        <h4 class="footer-title">{{ GetContent('footer_followUs') }}</h4>
                                         <ul>
                                             <li><a href="javascript:void(0);">Linked In </a></li>
                                             <li><a href="javascript:void(0);">facebook</a></li>
@@ -61,13 +61,13 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12">
-                            <div class="widget  wow fadeInUp" data-wow-delay="2.2s">
-                                <h4 class="footer-title">Newsletter</h4>
-                                <p>Sign up to our archi. point to recent updates & office</p>
-                                <form class="dzSubscribe ft-subscribe mb-4" action="assets/script/mailchamp.php"
+                            <div class="widget wow fadeInUp" data-wow-delay="2.2s">
+                                <h4 class="footer-title">{{ GetContent('footer_newsletter') }}</h4>
+                                <p>{{ GetContent('footer_newsletter_description') }}</p>
+                                <form class="mb-4 dzSubscribe ft-subscribe" action="assets/script/mailchamp.php"
                                     method="post">
                                     <div class="dzSubscribeMsg"></div>
-                                    <div class="input-group mb-0">
+                                    <div class="mb-0 input-group">
                                         <input name="dzEmail" required="required" type="email" class="form-control"
                                             placeholder="Your Email Address">
                                         <button name="submit" value="Submit" type="submit"
@@ -79,11 +79,11 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom text-md-center text-md-center bg-light">
+            <div class="footer-bottom text-md-center bg-light">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <div class="footer-inner text-center ">
+                            <div class="text-center footer-inner ">
                                 <p class="copyright-text wow fadeInUp" data-wow-delay="2.4s">Copyright 2023 by <a
                                         class="text-primary" href="#" target="_blank">sasssss</a>. All rights
                                     Reserved</p>
