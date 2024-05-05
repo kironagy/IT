@@ -180,6 +180,7 @@ class DatabaseSeeder extends Seeder
             'name' => \env('admin_name'),
             'email' => \env('admin_email'),
             'password' => Hash::make(\env('admin_password')),
+            'role' => 'superAdmin',
         ]);
 
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
@@ -12,10 +13,9 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     Route::get('/customText/Home', [PageController::class, 'index'])->name('admin.custom-text.home');
-    Route::post('/customText/Home', [PageController::class, 'update'])->name('admin.custom-text.update');
-    // Route::get('/customText/Home/{id}', function () {
-    //     return view('dashboard.customTextHome');
-    // })->name('admin.custom-text.home.store');
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users');
+    Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
 
+    Route::post('/customText/Home', [PageController::class, 'update'])->name('admin.custom-text.update');
 });
 Route::get('/{page}', [AdminController::class, 'index']);

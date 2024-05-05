@@ -15,19 +15,19 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Forms</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="my-auto mb-0 content-title">Forms</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
                     Form-Elements</span>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+                <button type="button" class="ml-2 btn btn-info btn-icon"><i class="mdi mdi-filter-variant"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+                <button type="button" class="ml-2 btn btn-danger btn-icon"><i class="mdi mdi-star"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
+                <button type="button" class="ml-2 btn btn-warning btn-icon"><i class="mdi mdi-refresh"></i></button>
             </div>
             <div class="mb-3 mb-xl-0">
                 <div class="btn-group dropdown">
@@ -53,12 +53,12 @@
     <!-- row -->
     <div class="row row-sm">
         <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12">
-            <div class="card  box-shadow-0">
+            <div class="card box-shadow-0">
                 <div class="card-header">
-                    <h4 class="card-title mb-1">Default Form</h4>
+                    <h4 class="mb-1 card-title">Default Form</h4>
                     <p class="mb-2">It is Very Easy to Customize and it uses in your website apllication.</p>
                 </div>
-                <div class="card-body pt-0">
+                <div class="pt-0 card-body">
                     <form class="form-horizontal">
                         <div class="form-group">
                             <input type="text" class="form-control" id="inputName" placeholder="Name">
@@ -69,16 +69,16 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                         </div>
-                        <div class="form-group mb-0 justify-content-end">
+                        <div class="mb-0 form-group justify-content-end">
                             <div class="checkbox">
                                 <div class="custom-checkbox custom-control">
                                     <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
                                         id="checkbox-2">
-                                    <label for="checkbox-2" class="custom-control-label mt-1">Check me Out</label>
+                                    <label for="checkbox-2" class="mt-1 custom-control-label">Check me Out</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mb-0 mt-3 justify-content-end">
+                        <div class="mt-3 mb-0 form-group justify-content-end">
                             <div>
                                 <button type="submit" class="btn btn-primary">Sign in</button>
                                 <button type="submit" class="btn btn-secondary">Cancel</button>
@@ -89,12 +89,12 @@
             </div>
         </div>
         <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12">
-            <div class="card  box-shadow-0 ">
+            <div class="card box-shadow-0 ">
                 <div class="card-header">
-                    <h4 class="card-title mb-1">Vertical Form</h4>
+                    <h4 class="mb-1 card-title">Vertical Form</h4>
                     <p class="mb-2">It is Very Easy to Customize and it uses in your website apllication.</p>
                 </div>
-                <div class="card-body pt-0">
+                <div class="pt-0 card-body">
                     <form>
                         <div class="">
                             <div class="form-group">
@@ -111,11 +111,11 @@
                                 <div class="custom-checkbox custom-control">
                                     <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
                                         id="checkbox-1">
-                                    <label for="checkbox-1" class="custom-control-label mt-1">Check me Out</label>
+                                    <label for="checkbox-1" class="mt-1 custom-control-label">Check me Out</label>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
+                        <button type="submit" class="mt-3 mb-0 btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -321,7 +321,7 @@
                     <p class="mg-b-20">It is Very Easy to Customize and it uses in your website apllication.</p>
                     <div class="row row-sm">
                         <div class="col-lg-4">
-                            <div class="input-group mb-3">
+                            <div class="mb-3 input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">@</span>
                                 </div><input aria-describedby="basic-addon1" aria-label="Username" class="form-control"
@@ -329,7 +329,7 @@
                             </div><!-- input-group -->
                         </div>
                         <div class="col-lg-4">
-                            <div class="input-group mb-3">
+                            <div class="mb-3 input-group">
                                 <input aria-describedby="basic-addon2" aria-label="Recipient's username"
                                     class="form-control" placeholder="Recipient's username" type="text">
                                 <div class="input-group-append">
@@ -338,7 +338,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="input-group mb-3">
+                            <div class="mb-3 input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div><input aria-label="Amount (to the nearest dollar)" class="form-control"
@@ -574,7 +574,8 @@
                     <p class="mg-b-20">It is Very Easy to Customize and it uses in your website apllication.</p>
                     <div class="row row-sm mg-b-20">
                         <div class="col-lg-4">
-                            <p class="mg-b-10">Single Select</p><select class="form-control select2-no-search">
+                            <p class="mg-b-10">Single Select</p>
+                            <select class="form-control select2-no-search">
                                 <option label="Choose one">
                                 </option>
                                 <option value="Firefox">
@@ -593,9 +594,10 @@
                                     Internet Explorer
                                 </option>
                             </select>
-                        </div><!-- col-4 -->
+                        </div>
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10">Single Select with Search</p><select class="form-control select2">
+                            <p class="mg-b-10">Single Select with Search</p>
+                            <select class="form-control select2">
                                 <option label="Choose one">
                                 </option>
                                 <option value="Firefox">

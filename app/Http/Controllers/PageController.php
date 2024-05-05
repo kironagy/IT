@@ -80,7 +80,6 @@ class PageController extends Controller
             Page::where('id', 'LIKE', $request->id)->first()->update([
                 'content' => $content,
             ]);
-            // dd($request['id']);
             session()->flash('success', 'Save Successfully');
 
             return \redirect()->back();
