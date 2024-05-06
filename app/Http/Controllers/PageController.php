@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Page;
 use ErrorException;
 use Illuminate\Http\Request;
@@ -50,11 +51,11 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        $page = Page::all();
+        $categories = Category::all();
 
         // return \json_decode($page);
 
-        return view('index', \compact('page'));
+        return view('index', \compact('categories'));
     }
 
     /**

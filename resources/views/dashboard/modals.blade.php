@@ -12,19 +12,19 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Advanced ui</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="my-auto mb-0 content-title">Advanced ui</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
                     Modals</span>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+                <button type="button" class="ml-2 btn btn-info btn-icon"><i class="mdi mdi-filter-variant"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+                <button type="button" class="ml-2 btn btn-danger btn-icon"><i class="mdi mdi-star"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
+                <button type="button" class="ml-2 btn btn-warning btn-icon"><i class="mdi mdi-refresh"></i></button>
             </div>
             <div class="mb-3 mb-xl-0">
                 <div class="btn-group dropdown">
@@ -53,7 +53,7 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Basic Example of Modal View</h6>
+                        <h6 class="mb-1 card-title">Basic Example of Modal View</h6>
                         <p class="text-muted card-sub-title">Below is the static example of the basic modal.</p>
                     </div>
                     <div class="pd-20 bg-light">
@@ -194,7 +194,7 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Modal Animation Effects</h6>
+                        <h6 class="mb-1 card-title">Modal Animation Effects</h6>
                         <p class="text-muted card-sub-title">Below are different kind of effects to choose from.</p>
                     </div>
                     <div class="row row-sm">
@@ -427,7 +427,7 @@
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                             aria-hidden="true">&times;</span></button> <i
-                        class="icon icon ion-ios-close-circle-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                        class="icon ion-ios-close-circle-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger mg-b-20">Error: Cannot process your entry!</h4>
                     <p class="mg-b-20 mg-x-20">There are many variations of passages of Lorem Ipsum available, but the
                         majority have suffered alteration.</p><button aria-label="Close"

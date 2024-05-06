@@ -10,19 +10,19 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Advanced ui</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="my-auto mb-0 content-title">Advanced ui</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
                     Sweet-Alerts</span>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+                <button type="button" class="ml-2 btn btn-info btn-icon"><i class="mdi mdi-filter-variant"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+                <button type="button" class="ml-2 btn btn-danger btn-icon"><i class="mdi mdi-star"></i></button>
             </div>
             <div class="pr-1 mb-3 mb-xl-0">
-                <button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
+                <button type="button" class="ml-2 btn btn-warning btn-icon"><i class="mdi mdi-refresh"></i></button>
             </div>
             <div class="mb-3 mb-xl-0">
                 <div class="btn-group dropdown">
@@ -52,8 +52,8 @@
                 <div class="card-header">
                     <h3 class="card-title">Basic Sweet-alert</h3>
                 </div>
-                <div class="card-body pt-0">
-                    <table class="table card-table border">
+                <div class="pt-0 card-body">
+                    <table class="table border card-table">
                         <tr>
                             <td>Title</td>
                             <td><input type='text' class="form-control" placeholder='Title text' id='title'></td>
@@ -64,13 +64,13 @@
                         </tr>
                         <tr>
                             <td colspan='2' class="mt-5 text-center">
-                                <input type='button' class="btn btn-primary mt-2" value='Simple alert'
+                                <input type='button' class="mt-2 btn btn-primary" value='Simple alert'
                                     id='but1'>&nbsp;
-                                <input type='button' class="btn btn-danger mt-2" value='Alert with title'
+                                <input type='button' class="mt-2 btn btn-danger" value='Alert with title'
                                     id='but2'>&nbsp;
-                                <input type='button' class="btn btn-info mt-2" value='Alert with image'
+                                <input type='button' class="mt-2 btn btn-info" value='Alert with image'
                                     id='but3'>&nbsp;
-                                <input type='button' class="btn btn-warning mt-2" value='With timer' id='but4'>
+                                <input type='button' class="mt-2 btn btn-warning" value='With timer' id='but4'>
                             </td>
                         </tr>
                     </table>
@@ -82,10 +82,10 @@
     <!-- Row -->
     <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Basic Alert</h6>
+                        <h6 class="mb-1 card-title">Basic Alert</h6>
                         <p class="text-muted card-sub-title">A Basic Message</p>
                     </div>
                     <div class="btn ripple btn-primary-gradient" id='swal-basic'>
@@ -95,10 +95,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Title alert</h6>
+                        <h6 class="mb-1 card-title">Title alert</h6>
                         <p class="text-muted card-sub-title">A title with a text under</p>
                     </div>
                     <div class="btn ripple btn-danger-gradient" id='swal-title'>
@@ -108,10 +108,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Success alert</h6>
+                        <h6 class="mb-1 card-title">Success alert</h6>
                         <p class="text-muted card-sub-title">A Success Message</p>
                     </div>
                     <div class="btn ripple btn-success-gradient" id='swal-success'>
@@ -121,10 +121,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Warning alert</h6>
+                        <h6 class="mb-1 card-title">Warning alert</h6>
                         <p class="text-muted card-sub-title">A warning message</p>
                     </div>
                     <div class="btn ripple btn-warning-gradient" id='swal-warning'>
@@ -139,10 +139,10 @@
     <!-- Row -->
     <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Passing a parameter alert</h6>
+                        <h6 class="mb-1 card-title">Passing a parameter alert</h6>
                         <p class="text-muted card-sub-title">By passing a parameter</p>
                     </div>
                     <div class="btn ripple btn-purple-gradient" id='swal-parameter'>
@@ -152,10 +152,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Image alert</h6>
+                        <h6 class="mb-1 card-title">Image alert</h6>
                         <p class="text-muted card-sub-title">A message with custom Image</p>
                     </div>
                     <div class="btn ripple btn-pink-gradient" id='swal-image'>
@@ -165,10 +165,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Timer alert</h6>
+                        <h6 class="mb-1 card-title">Timer alert</h6>
                         <p class="text-muted card-sub-title">A message with auto close timer</p>
                     </div>
                     <div class="btn ripple btn-dark-gradient" id='swal-timer'>
@@ -178,10 +178,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-3">
-            <div class="card custom-card text-center">
+            <div class="text-center card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Ajax Alert</h6>
+                        <h6 class="mb-1 card-title">Ajax Alert</h6>
                         <p class="text-muted card-sub-title">With a loader (for a AJAX requests)</p>
                     </div>
                     <div class="btn ripple btn-info-gradient" id='swal-ajax'>

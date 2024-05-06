@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return \view('dashboard.category', \compact('categories'));
     }
 
     /**
@@ -28,7 +30,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title','description','img'
+        ]);
+        $file = $request->file('img')->store('' , 'public');
+        Category::create([
+            "title"=>$request["title"],
+            "description"=>$request['description'],
+            "img_path"=>$file
+        ]);
+        session()->flash('success' , "Save Done");
+        return redirect()->back();
     }
 
     /**

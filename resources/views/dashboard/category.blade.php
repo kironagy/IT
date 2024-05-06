@@ -38,7 +38,7 @@
     </div>
     <div class="modal" id="addUser">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <form action="{{ route('admin.users.store') }}" method="post" class="modal-content">
+            <form action="{{ route('admin.category.store') }}" method="post" class="modal-content" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header pd-20">
                     <h6 class="modal-title">Add User</h6><button aria-label="Close" class="close" data-dismiss="modal"
@@ -47,38 +47,19 @@
                 <div class="modal-body pd-0">
                     <div class="gap-2 p-2 ql-wrapper ql-wrapper-modal h-fit ">
                         <div>
-                            <label>Name</label>
-                            <input id='name' name="name" class="form-control" type='text' placeholder="Name">
+                            <label>Title</label>
+                            <input id='title' name="title" class="form-control" type='text' placeholder="Title">
                         </div>
                         <div>
-                            <label>Email</label>
-                            <input id='email' name="email" class="form-control" type='text' placeholder="Email">
+                            <label>Description</label>
+                            <input id='description' name="description" class="form-control" type='text'
+                                placeholder="description">
                         </div>
                         <div>
-                            <label>Password</label>
-                            <input id='password' name="password" class="form-control" type='text'
-                                placeholder="Password">
+                            <label>Upload Icon</label>
+                            <input id='img' name="img" class="form-control" type='file' placeholder="Password">
                         </div>
-                        <div class="col-lg-4">
-                            <p class="mg-b-10">Role</p>
-                            <select name='role' class="form-control select2-no-search">
-                                <option label="Choose one">
-                                </option>
-                                <option value="user">
-                                    user
-                                </option>
-                                <option value="writer">
-                                    writer
-                                </option>
-                                <option value="admin">
-                                    admin
-                                </option>
-                                <option value="superAdmin">
-                                    superAdmin
-                                </option>
 
-                            </select>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer pd-20">
@@ -180,10 +161,10 @@
             <div class="card">
                 <div class="pb-0 card-header ">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">Custom Text</h4>
+                        <h4 class="card-title mg-b-0">Categories</h4>
                     </div>
                     <button class="mt-4 btn btn-main-primary" type="submit" data-target="#addUser"
-                        data-toggle="modal">Add New User</button>
+                        data-toggle="modal">Add New Category</button>
 
                 </div>
 
@@ -193,31 +174,31 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">id</th>
-                                    <th class="wd-15p border-bottom-0">Name</th>
-                                    <th class="wd-15p border-bottom-0">Email</th>
-                                    <th class="wd-15p border-bottom-0">Role</th>
+                                    <th class="wd-15p border-bottom-0">Title</th>
+                                    <th class="wd-15p border-bottom-0">Description</th>
+                                    <th class="wd-15p border-bottom-0">Img</th>
                                     <th class="wd-15p border-bottom-0">Controll</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($categories as $category)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->role }}</td>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $category->description }}</td>
+                                        <td>
+                                            <img width="40px" height="40px" style="object-fit: cover" src="{{ asset("storage/{$category->img_path}")}}">
+                                        </td>
                                         <td class="gap-5 d-flex">
-                                            <a type="button" onclick="SelectElemnt({{ $user }})"
+                                            <a type="button" onclick="SelectElemnt({{ $category }})"
                                                 class="text-white btn btn-primary btn-sm" data-target="#EditUser"
                                                 data-toggle="modal">Edit</a>
-                                            @if ($user->email != env('admin_email'))
-                                                <form action="/test" method="POST">
-                                                    @csrf
-                                                    <a type="button" onclick="SelectElemnt({{ $user }})"
-                                                        class="mx-2 text-white btn btn-danger btn-sm"
-                                                        data-target="#modaldemo1" data-toggle="modal">Delete</a>
-                                                </form>
-                                            @endif
+                                            <form action="/test" method="POST">
+                                                @csrf
+                                                <a type="button" onclick="SelectElemnt({{ $category }})"
+                                                    class="mx-2 text-white btn btn-danger btn-sm"
+                                                    data-target="#modaldemo1" data-toggle="modal">Delete</a>
+                                            </form>
 
 
                                         </td>

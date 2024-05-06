@@ -45,11 +45,11 @@ class UserController extends Controller
             ]);
             \session()->flash('success', 'User created successfully');
 
-            return redirect()->route('dashboard.users');
+            return \redirect()->back();
         } catch (ErrorException $error) {
             \session()->flash('error', $error->getMessage());
 
-            return redirect()->route('dashboard.users');
+            return \redirect()->back();
         }
     }
 
@@ -80,8 +80,17 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $user = User::where('id', 'LIKE', $request['id'])->first();
+        if ($user && $user['email'] != \env('admin_email')) {
+            $user->delete();
+            \session()->flash('success', 'Delete User Done');
+
+        } else {
+            \session()->flash('error', 'Error Dont Delete This User ');
+        }
+
+        return \redirect()->back();
     }
 }
