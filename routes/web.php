@@ -29,13 +29,16 @@ Route::group(
             return view('about');
         })->name('about');
 
+        //blogs
         Route::get('/blog', function () {
             return view('blog');
         })->name('blog');
+
         Route::get('/blog_details', function () {
             return view('blog_details');
         })->name('blog_details');
 
+        //
         Route::post('/page/create', [PageController::class, 'store']);
 
         Route::resource('pages', PageController::class);

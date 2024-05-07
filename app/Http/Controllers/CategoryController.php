@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return \view('dashboard.category', \compact('categories'));
+        return view('dashboard.category', \compact('categories'));
     }
 
     /**
@@ -24,22 +24,22 @@ class CategoryController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $request->validate([
-            'title','description','img'
+            'title', 'description', 'img',
         ]);
-        $file = $request->file('img')->store('' , 'public');
+        $file = $request->file('img')->store('', 'public');
         Category::create([
-            "title"=>$request["title"],
-            "description"=>$request['description'],
-            "img_path"=>$file
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'img_path' => $file,
         ]);
-        session()->flash('success' , "Save Done");
+        session()->flash('success', 'Save Done');
+
         return redirect()->back();
     }
 

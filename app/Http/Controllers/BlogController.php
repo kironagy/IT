@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -12,7 +13,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = blog::all();
+
+        return view('dashboard.blogs.blogs', compact('blogs'));
     }
 
     /**
@@ -28,7 +31,28 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'img' => 'required|image',
+        ]);
+
+        $file = $request->file('img')->store('blog_images', 'public');
+
+        $blog = blog::create([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'img' => $file,
+            'created_by' => Auth::user()->name,
+        ]);
+
+        if ($blog->save()) {
+            session()->flash('success', 'Blog saved successfully');
+        } else {
+            session()->flash('error', 'Failed to save the blog');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -60,6 +84,15 @@ class BlogController extends Controller
      */
     public function destroy(blog $blog)
     {
-        //
+        try {
+            if ($blog->delete()) {
+                session()->flash('success', 'Blog deleted successfully');
+            } else {
+                session()->flash('error', 'Failed to delete the blog');
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', 'Failed to delete the blog: ' . $e->getMessage());
+        }
+        return redirect()->route('admin.blogs');
     }
 }

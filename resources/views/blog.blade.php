@@ -43,34 +43,40 @@
         <section class="content-inner position-relative">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 col-md-6  m-b30">
-                        <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.2s">
-                            <div class="dz-media">
-                                <a href="blog-details.html"><img src="{{ asset('assets/images/blog/pic2.jpg') }}"
-                                        alt=""></a>
-                                <span class="date"><a href="javascript:void(0)">18 Jun 2020</a></span>
-                            </div>
-                            <div class="dz-info">
-                                <div class="dz-meta">
-                                    <ul>
-                                        <li class="post-author text-primary">
-                                            <span>
-                                                <i class="fa-solid fa-user"></i>
-                                            </span>
-                                            By Kk Sharma
-                                        </li>
-                                    </ul>
+                    @foreach ($blogs as $blog)
+                        <div class="col-xl-4 col-md-6 m-b30">
+                            <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.2s">
+                                <div class="dz-media">
+                                    <a href="{{ route('blog_details', ['id' => $blog->id]) }}">
+                                        <img src="{{ asset('storage/' . $blog->img) }}" alt="{{ $blog->title }}">
+                                    </a>
+                                    <span class="date"><a
+                                            href="javascript:void(0)">{{ $blog->created_at->format('d M Y') }}</a></span>
                                 </div>
-                                <h4 class="dz-title"><a href="{{ }}">5 things to know about the March 2022</a>
-                                </h4>
-                                <p>A wonderful serenity has taken of my entire soul, like these.</p>
-                                <a href="blog-details.html" class="btn btn-primary">Read More</a>
+                                <div class="dz-info">
+                                    <div class="dz-meta">
+                                        <ul>
+                                            <li class="post-author text-primary">
+                                                <span>
+                                                    <i class="fa-solid fa-user"></i>
+                                                </span>
+                                                By {{ $blog->author }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="dz-title">
+                                        <a href="{{ route('blog_details', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
+                                    </h4>
+                                    <p>{{ Str::limit($blog->description, 100) }}</p>
+                                    <a href="{{ route('blog_details', ['id' => $blog->id]) }}" class="btn btn-primary">Read
+                                        More
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-
+                    @endforeach
                 </div>
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 m-b30 m-t30 m-lg-t10">
                         <nav aria-label="Blog Pagination">

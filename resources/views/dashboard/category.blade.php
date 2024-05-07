@@ -1,20 +1,20 @@
 @extends('layouts.admin.master')
 @section('css')
-    <!-- Internal Data table css -->
+    {{--    <!-- Internal Data table css --> --}}
     <link href="{{ URL::asset('assets_2/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets_2/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets_2/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets_2/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets_2/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets_2/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
-    <!--Internal  Quill css -->
+    {{--    <!--Internal  Quill css --> --}}
     <link href="{{ URL::asset('assets_2/plugins/quill/quill.snow.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets_2/plugins/quill/quill.bubble.css') }}" rel="stylesheet">
-    <!--- Internal Sweet-Alert css-->
+    {{--    <!--- Internal Sweet-Alert css--> --}}
     <link href="{{ URL::asset('assets_2/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
 @endsection
 @section('page-header')
-    <!-- breadcrumb -->
+    <!-- Delete User -->
     <div class="modal" id="modaldemo1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
@@ -36,9 +36,11 @@
             </div>
         </div>
     </div>
+    {{-- addUser --}}
     <div class="modal" id="addUser">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <form action="{{ route('admin.category.store') }}" method="post" class="modal-content" enctype="multipart/form-data">
+            <form action="{{ route('admin.category.store') }}" method="post" class="modal-content"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header pd-20">
                     <h6 class="modal-title">Add User</h6><button aria-label="Close" class="close" data-dismiss="modal"
@@ -68,6 +70,7 @@
             </form>
         </div>
     </div>
+    {{-- EditUser --}}
     <div class="modal" id="EditUser">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <form action="{{ route('admin.custom-text.update') }}" method="post" class="modal-content">
@@ -85,8 +88,7 @@
                         </div>
                         <div>
                             <label>Name</label>
-                            <input id='input_name' name="Name" class="form-control" type='text'
-                                placeholder="Name">
+                            <input id='input_name' name="Name" class="form-control" type='text' placeholder="Name">
                         </div>
                         <div>
                             <label>Email</label>
@@ -165,9 +167,7 @@
                     </div>
                     <button class="mt-4 btn btn-main-primary" type="submit" data-target="#addUser"
                         data-toggle="modal">Add New Category</button>
-
                 </div>
-
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table text-md-nowrap" id="example1">
@@ -187,7 +187,8 @@
                                         <td>{{ $category->title }}</td>
                                         <td>{{ $category->description }}</td>
                                         <td>
-                                            <img width="40px" height="40px" style="object-fit: cover" src="{{ asset("storage/{$category->img_path}")}}">
+                                            <img width="40px" height="40px" style="object-fit: cover"
+                                                src="{{ asset("storage/{$category->img_path}") }}">
                                         </td>
                                         <td class="gap-5 d-flex">
                                             <a type="button" onclick="SelectElemnt({{ $category }})"
