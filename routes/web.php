@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,16 +23,22 @@ Route::group(
 
         require __DIR__.'/auth.php';
 
-        Route::get('/', [App\Http\Controllers\PageController::class, 'show'])->name('home');
+        Route::get('/', [PageController::class, 'show'])->name('home');
+
         Route::get('/about', function () {
             return view('about');
         })->name('about');
-        Route::get('/blog', function () {
-            return view('blog-details');
-        });
-        Route::post('/page/create', [\App\Http\Controllers\PageController::class, 'store']);
-        Route::resource('pages', \App\Http\Controllers\PageController::class);
 
+        Route::get('/blog', function () {
+            return view('blog');
+        })->name('blog');
+        Route::get('/blog_details', function () {
+            return view('blog_details');
+        })->name('blog_details');
+
+        Route::post('/page/create', [PageController::class, 'store']);
+
+        Route::resource('pages', PageController::class);
     });
 
 Route::middleware('auth')->group(function () {

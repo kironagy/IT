@@ -1,7 +1,7 @@
 @extends('layouts.website.master')
-@section('title')
+{{-- @section('title_web')
     AboutPage
-@endsection
+@endsection --}}
 @section('css')
 @endsection
 @section('content')

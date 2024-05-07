@@ -25,8 +25,7 @@
                             <div class="extra-cell">
                                 <button id="quik-search-btn" type="button" class="header-search-btn"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
-                                <a class="btn btn-dark btn-lg btn-shadow"
-                                    href="{{route("login")}}">login</a>
+                                <a class="btn btn-dark btn-lg btn-shadow" href="{{ route('login') }}">login</a>
                             </div>
                         </div>
 
@@ -56,12 +55,8 @@
                                     </ul>
                                 </li>
                                 <li><a href="pricing.html">Pricing</a></li>
-                                <li class="sub-menu-down"><a href="javascript:void(0);">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-list.html">Blog List</a></li>
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
+                                <li class="">
+                                    <a href="{{ route('blog') }}">Blogs</a>
                                 </li>
                                 <li><a href="contact-us.html">Contact Us</a></li>
                             </ul>
