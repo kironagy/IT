@@ -54,7 +54,7 @@
                                         <li><a href="job-detail.html">Job Detail</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="{{route("team")}}">OurTeam</a></li>
                                 <li class="">
                                     <a href="{{ route('blog') }}">Blogs</a>
                                 </li>

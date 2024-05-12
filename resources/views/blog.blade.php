@@ -21,7 +21,7 @@
 @section('content')
     <div class="page-content">
         <!-- Banner  -->
-        <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark"
+        <div class="text-center dz-bnr-inr dz-bnr-inr-sm overlay-primary-dark"
             style="background-image: url(assets/images/banner/bnr1.jpg);">
             <div class="container">
                 <div class="dz-bnr-inr-entry">
@@ -47,23 +47,14 @@
                         <div class="col-xl-4 col-md-6 m-b30">
                             <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.2s">
                                 <div class="dz-media">
-                                    <a href="{{ route('blog_details', ['id' => $blog->id]) }}">
+                                    <a href="{{ url("/blog/{$blog->id}") }}">
                                         <img src="{{ asset('storage/' . $blog->img) }}" alt="{{ $blog->title }}">
                                     </a>
                                     <span class="date"><a
                                             href="javascript:void(0)">{{ $blog->created_at->format('d M Y') }}</a></span>
                                 </div>
                                 <div class="dz-info">
-                                    <div class="dz-meta">
-                                        <ul>
-                                            <li class="post-author text-primary">
-                                                <span>
-                                                    <i class="fa-solid fa-user"></i>
-                                                </span>
-                                                By {{ $blog->author }}
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                     <h4 class="dz-title">
                                         <a href="{{ route('blog_details', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
                                     </h4>
@@ -80,7 +71,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 m-b30 m-t30 m-lg-t10">
                         <nav aria-label="Blog Pagination">
-                            <ul class="pagination style-1 text-center  wow fadeInUp" data-wow-delay="0.8s">
+                            <ul class="text-center pagination style-1 wow fadeInUp" data-wow-delay="0.8s">
                                 <li class="page-item"><a class="page-link prev" href="javascript:void(0);"><i
                                             class="fas fa-chevron-left"></i></a></li>
                                 <li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>

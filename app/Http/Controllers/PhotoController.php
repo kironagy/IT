@@ -12,7 +12,9 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::all();
+
+        return view("dashboard.photos.photos" , compact('photos'));
     }
 
     /**
@@ -52,7 +54,11 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        //
+        $file = $request->file('img')->store('' , 'public');
+        Photo::where("id" , "LIKE" , $request['id'])->update([
+           "img_path" => $file
+        ]);
+        return redirect()->back();
     }
 
     /**

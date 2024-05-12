@@ -18,6 +18,20 @@ class BlogController extends Controller
         return view('dashboard.blogs.blogs', compact('blogs'));
     }
 
+    public function getBlogs()
+    {
+        $blogs = blog::all();
+
+        return view('blog', compact('blogs'));
+    }
+
+    public function getBlog($id)
+    {
+        $blog = blog::where('id', 'LIKE', $id)->first();
+
+        return view('blog_details', \compact('blog'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -43,6 +57,7 @@ class BlogController extends Controller
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'img' => $file,
+            'content' => $request['editordata'],
             'created_by' => Auth::user()->name,
         ]);
 
@@ -76,23 +91,24 @@ class BlogController extends Controller
      */
     public function update(Request $request, blog $blog)
     {
-        //
+        blog::where('id', 'LIKE', $request['id'])->first()->update([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'content' => $request['editordata'],
+        ]);
+        \session()->flash('success', 'Edit Done');
+
+        return \redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(blog $blog)
+    public function destroy(Request $request)
     {
-        try {
-            if ($blog->delete()) {
-                session()->flash('success', 'Blog deleted successfully');
-            } else {
-                session()->flash('error', 'Failed to delete the blog');
-            }
-        } catch (\Exception $e) {
-            session()->flash('error', 'Failed to delete the blog: ' . $e->getMessage());
-        }
+        blog::where('id', 'LIKE', $request['id'])->first()->delete();
+        session()->flash('success', 'Blog deleted successfully');
+
         return redirect()->route('admin.blogs');
     }
 }

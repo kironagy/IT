@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Galary;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class GalaryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::all();
+        $imgs = Galary::all();
 
-        return view('dashboard.category', \compact('categories'));
+        return view('dashboard.galary.galary', \compact('imgs'));
     }
 
     /**
@@ -30,24 +30,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title', 'description', 'img',
-        ]);
         $file = $request->file('img')->store('', 'public');
-        Category::create([
+        Galary::create([
+            'img' => $file,
             'title' => $request['title'],
-            'description' => $request['description'],
-            'img_path' => $file,
+            'section' => $request['section'],
+            'price' => $request['price'],
         ]);
-        session()->flash('success', 'Save Done');
+        \session()->flash('success', 'Add Img Done');
 
-        return redirect()->back();
+        return \redirect()->back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(Galary $galary)
     {
         //
     }
@@ -55,7 +53,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Galary $galary)
     {
         //
     }
@@ -63,7 +61,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Galary $galary)
     {
         //
     }
@@ -73,7 +71,13 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request)
     {
-        Category::where('id', 'LIKE', $request['id'])->first()->delete();
+        $galary = Galary::where('id', 'LIKE', $request['id'])->first();
+        if ($galary) {
+            $galary->delete();
+            \session()->flash('success', ' Delete Done');
+        } else {
+            \session()->flash('error', 'Error When Delete');
+        }
 
         return \redirect()->back();
     }

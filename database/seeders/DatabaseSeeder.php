@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Photo;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -168,12 +169,26 @@ class DatabaseSeeder extends Seeder
         ],
     ];
 
+    private $Photo = [
+        [
+            "key"=>"img_1",
+            "img_path"=>""
+        ],
+        [
+            "key"=>"img_2",
+            "img_path"=>""
+        ]
+        ];
+
     public function run(): void
     {
         // \App\Models\Page::factory(4)->create();
 
         foreach ($this->Contents as $content) {
             \App\Models\Page::factory()->create($content);
+        }
+        foreach ($this->Photo as $photo) {
+            \App\Models\Photo::factory()->create($photo);
         }
 
         \App\Models\User::factory()->create([

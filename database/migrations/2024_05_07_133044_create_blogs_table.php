@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->string('content');
             $table->string('img');
             $table->string('created_by');
             $table->timestamps();

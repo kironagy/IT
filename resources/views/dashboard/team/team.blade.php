@@ -1,11 +1,5 @@
 @extends('layouts.admin.master')
 @section('css')
-    <!--- Internal Select2 css-->
-    <link href="{{ URL::asset('assets_2/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
-    <!--Internal  Quill css -->
-    <link href="{{ URL::asset('assets_2/plugins/quill/quill.snow.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets_2/plugins/quill/quill.bubble.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
@@ -13,7 +7,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="my-auto mb-0 content-title">Pages</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
+                <h4 class="content-title mb-0 my-auto">Pages</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
                     blogs</span>
             </div>
         </div>
@@ -62,22 +56,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($blogs as $blog)
+                                @foreach ($teams as $team)
                                     <tr>
-                                        <td>{{ $blog->id }}</td>
-                                        <td>{{ $blog->title }}</td>
-                                        <td>{{ $blog->description }}</td>
+                                        <td>{{ $team->id }}</td>
+                                        <td>{{ $team->name }}</td>
+                                        <td>{{ $team->description }}</td>
                                         <td>
                                             <img width="40px" height="40px" style="object-fit: cover"
-                                                src="{{ asset("storage/{$blog->img}") }}">
+                                                src="{{ asset("storage/{$team->img}") }}">
                                         </td>
                                         <td class="gap-5 d-flex">
-                                            <a type="button" onclick="SelectElemnt({{ $blog }})"
+                                            <a type="button" onclick="SelectElemnt({{ $team }})"
                                                 class="text-white btn btn-primary btn-sm" data-target="#EditUser"
                                                 data-toggle="modal">Edit</a>
-                                            <form action="{{ route('admin.blogs.destroy') }}" method="POST">
+                                            <form action="/test" method="POST">
                                                 @csrf
-                                                <a type="button" onclick="SelectElemnt({{ $blog }})"
+                                                <a type="button" onclick="SelectElemnt({{ $team }})"
                                                     class="mx-2 text-white btn btn-danger btn-sm" data-target="#modaldemo1"
                                                     data-toggle="modal">Delete</a>
                                             </form>
@@ -97,18 +91,18 @@
         {{-- addBlog --}}
         <div class="modal" id="addUser">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <form action="{{ route('admin.blogs.store') }}" method="post" class="modal-content"
+                <form action="{{ route('admin.team.store') }}" method="post" class="modal-content"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header pd-20">
-                        <h6 class="modal-title">Add Blog</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                        <h6 class="modal-title">Add Team</h6><button aria-label="Close" class="close" data-dismiss="modal"
                             type="button"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body pd-0">
                         <div class="gap-2 p-2 ql-wrapper ql-wrapper-modal h-fit ">
                             <div>
-                                <label>Title</label>
-                                <input id='title' name="title" class="form-control" type='text'
+                                <label>Name</label>
+                                <input id='name' name="name" class="form-control" type='text'
                                     placeholder="Title">
                             </div>
                             <div>
@@ -117,13 +111,24 @@
                                     placeholder="description">
                             </div>
                             <div>
-                                <label>Content</label>
-                                <textarea id="summernote" name="editordata"></textarea>
-                                <div id="example"></div>
+                                <label>Img</label>
+                                <input id='img' name="img" class="form-control" type='file'>
                             </div>
                             <div>
-                                <label>Upload img</label>
-                                <input id='img' name="img" class="form-control" type='file'>
+                                <label>Job</label>
+                                <input id='job' name="job" class="form-control" type='text' placeholder="Job title">
+                            </div>
+                            <div>
+                                <label>Link Facebook</label>
+                                <input id='facebook' name="facebook" class="form-control" type='text' placeholder="facebook">
+                            </div>
+                            <div>
+                                <label>Link LinkedIn</label>
+                                <input id='linkeding' name="linkeding" class="form-control" type='text' placeholder="linkeding">
+                            </div>
+                            <div>
+                                <label>Link Mail</label>
+                                <input id='message' name="message" class="form-control" type='text' placeholder="mail">
                             </div>
 
                         </div>
@@ -140,32 +145,51 @@
                 <form action="{{ route('admin.blogs.update') }}" method="post" class="modal-content">
                     @csrf
                     <div class="modal-header pd-20">
-                        <h6 class="modal-title">Edit Blog</h6><button aria-label="Close" class="close"
+                        <h6 class="modal-title">Edit User</h6><button aria-label="Close" class="close"
                             data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body pd-0">
                         <div class="gap-2 p-2 ql-wrapper ql-wrapper-modal h-fit ">
                             <div>
-                                <input hidden id='edit_id' name="id" class="form-control" type='text'
-                                    placeholder="Title">
+                                <label>Id</label>
+                                <input id='input_id' name="id" class="form-control" readonly type='text'
+                                    placeholder="Id">
                             </div>
                             <div>
-                                <label>Title</label>
-                                <input id='edit_title' name="title" class="form-control" type='text'
-                                    placeholder="Title">
+                                <label>Name</label>
+                                <input id='input_name' name="Name" class="form-control" type='text'
+                                    placeholder="Name">
                             </div>
                             <div>
-                                <label>Description</label>
-                                <input id='edit_description' name="description" class="form-control" type='text'
-                                    placeholder="description">
+                                <label>Email</label>
+                                <input id='input_email' name="Email" class="form-control" type='text'
+                                    placeholder="Email">
                             </div>
                             <div>
-                                <label>Content</label>
-                                <textarea id="summernote2" name="editordata"></textarea>
-                                <div id="example"></div>
+                                <label>Change Password</label>
+                                <input id='input_password' name="Password" class="form-control" type='text'
+                                    placeholder="Change Password">
                             </div>
+                            <div class="col-lg-4">
+                                <p class="mg-b-10">Role</p>
+                                <select id='input_role' class="form-control select2-no-search">
+                                    <option label="Choose one">
+                                    </option>
+                                    <option value="user">
+                                        user
+                                    </option>
+                                    <option value="writer">
+                                        writer
+                                    </option>
+                                    <option value="admin">
+                                        admin
+                                    </option>
+                                    <option value="superAdmin">
+                                        superAdmin
+                                    </option>
 
-
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer pd-20">
@@ -186,9 +210,9 @@
                         <h6>Are You Sure Delete Blog</h6>
                     </div>
                     <div class="modal-footer">
-                        <form action="{{ route('admin.blogs.destroy') }}" method="post">
+                        <form action="{{ route('admin.team.destroy') }}" method="post">
                             @csrf
-                            <input hidden type='text' name="id" id='id_user'>
+                            <input  type='text' name="id" id='id_user'>
                             <button class="btn ripple btn-danger" type="submit">Delete</button>
                         </form>
                         <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
@@ -205,11 +229,11 @@
 @endsection
 @section('js')
     <!-- Internal Data tables -->
-    {{-- <script src="{{ URL::asset('assets_2/plugins/datatable/js/jquery.dataTables.min.js') }}"></script> --}}
-    {{-- <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script> --}}
-    {{-- <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.responsive.min.js') }}"></script> --}}
-    {{-- <script src="{{ URL::asset('assets_2/plugins/datatable/js/responsive.dataTables.min.js') }}"></script> --}}
-    {{-- <script src="{{ URL::asset('assets_2/plugins/datatable/js/jquery.dataTables.js') }}"></script> --}}
+    <script src="{{ URL::asset('assets_2/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ URL::asset('assets_2/plugins/datatable/js/responsive.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('assets_2/plugins/datatable/js/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ URL::asset('assets_2/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ URL::asset('assets_2/plugins/datatable/js/buttons.bootstrap4.min.js') }}"></script>
@@ -240,35 +264,20 @@
     <script src="{{ URL::asset('assets_2/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ URL::asset('assets_2/js/sweet-alert.js') }}"></script>
 
-    <script src="{{ URL::asset('assets_2/plugins/select2/js/select2.min.js') }}"></script>
-    <!--Internal quill js -->
-    <script src="{{ URL::asset('assets_2/plugins/quill/quill.min.js') }}"></script>
-    <!-- Internal Form-editor js -->
-    <script src="{{ URL::asset('assets_2/js/form-editor.js') }}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-        $(document).ready(function() {
-            $('#summernote2').summernote();
-        });
-    </script>
-
     <script>
         function SelectElemnt(user) {
             console.log(user.content);
-            let edit_id = document.getElementById('edit_id');
-            let id_user = document.getElementById('edit_title');
-            let input_Id = document.getElementById('edit_description');
-            let input_content = document.getElementById('');
-            edit_id.value = user.id;
-            id_user.value = user.title;
-            input_Id.value = user.description;
-            $('#summernote2').val('Test');
-            console.log(user);
+            let id_user = document.getElementById('id_user');
+            let input_Id = document.getElementById('input_id');
+            let input_Key = document.getElementById('input_name');
+            let input_English = document.getElementById('input_email');
+            let input_French = document.getElementById('input_role');
+
+            id_user.value = user.id;
+            input_Id.value = user.id;
+            input_Key.value = user.name;
+            input_English.value = user.email;
+            input_French.value = user.role;
         }
     </script>
 @endsection

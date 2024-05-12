@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Galary;
 use App\Models\Page;
+use App\Models\Photo;
 use ErrorException;
 use Illuminate\Http\Request;
 
@@ -52,10 +54,13 @@ class PageController extends Controller
     public function show(Page $page)
     {
         $categories = Category::all();
+        $galaries = Galary::all();
+        $img1 = Photo::where('id', 'LIKE', 1)->first();
+        $img2 = Photo::where('id', 'LIKE', 2)->first();
 
         // return \json_decode($page);
 
-        return view('index', \compact('categories'));
+        return view('index', \compact('categories', 'img1', 'img2', 'galaries'));
     }
 
     /**

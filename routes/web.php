@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -29,14 +30,12 @@ Route::group(
             return view('about');
         })->name('about');
 
-        //blogs
-        Route::get('/blog', function () {
-            return view('blog');
-        })->name('blog');
+        Route::get('/team', [\App\Http\Controllers\TeamController::class, 'getTeam'])->name('team');
 
-        Route::get('/blog_details', function () {
-            return view('blog_details');
-        })->name('blog_details');
+        //blogs
+        Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'getBlogs'])->name('blog');
+
+        Route::get('/blog/{id}', [BlogController::class, 'getBlog'])->name('blog_details');
 
         //
         Route::post('/page/create', [PageController::class, 'store']);

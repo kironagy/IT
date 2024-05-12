@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class blog extends Model
+class Galary extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title', 'description', 'img', 'content', 'created_by',
-    ];
+    protected $fillable = ['img', 'title', 'section', 'price'];
 }

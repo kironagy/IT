@@ -26,7 +26,7 @@
                     <h6>Are You Sure Delete User</h6>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('admin.users.destroy') }}" method="post">
+                    <form action="{{ route('admin.category.destory') }}" method="post">
                         @csrf
                         <input hidden type='text' name="id" id='id_user'>
                         <button class="btn ripple btn-danger" type="submit">Delete</button>
@@ -191,9 +191,9 @@
                                                 src="{{ asset("storage/{$category->img_path}") }}">
                                         </td>
                                         <td class="gap-5 d-flex">
-                                            <a type="button" onclick="SelectElemnt({{ $category }})"
+                                            {{-- <a type="button" onclick="SelectElemnt({{ $category }})"
                                                 class="text-white btn btn-primary btn-sm" data-target="#EditUser"
-                                                data-toggle="modal">Edit</a>
+                                                data-toggle="modal">Edit</a> --}}
                                             <form action="/test" method="POST">
                                                 @csrf
                                                 <a type="button" onclick="SelectElemnt({{ $category }})"
