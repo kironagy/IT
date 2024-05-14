@@ -35,7 +35,9 @@ class CategoryController extends Controller
         ]);
         $file = $request->file('img')->store('', 'public');
         Category::create([
-            'title' => $request['title'],
+            'title' => [
+                config('app.locale') => $request['title'],
+            ],
             'description' => $request['description'],
             'img_path' => $file,
         ]);
@@ -65,7 +67,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category = Category::findOrFail($request->input('id'));
+
+        // Retrieve the current title data
+        $title = $category->title = $request['title'] ?? $category->title;
+        $description = $category->description = $request['description'] ?? $category->description;
+
+        // Update the title in the database
+        $category->update([
+            'title' => $title,
+            'description' => $description,
+        ]);
+
+        return redirect()->back();
     }
 
     /**

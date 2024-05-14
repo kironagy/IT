@@ -35,24 +35,9 @@
                                 placeholder="Key">
                         </div>
                         <div>
-                            <label>English</label>
-                            <input id='input_English' name="English" class="form-control" type='text'
+                            <label>Content</label>
+                            <input id='input_content' name="content" class="form-control" type='text'
                                 placeholder="English">
-                        </div>
-                        <div>
-                            <label>Italian</label>
-                            <input id='input_Italian' name="Italian" class="form-control" type='text'
-                                placeholder="Italian">
-                        </div>
-                        <div>
-                            <label>French</label>
-                            <input id='input_French' name="French" class="form-control" type='text'
-                                placeholder="French">
-                        </div>
-                        <div>
-                            <label>German</label>
-                            <input id='input_German' name="German" class="form-control" type='text'
-                                placeholder="German">
                         </div>
                     </div>
                 </div>
@@ -107,9 +92,7 @@
                                 <tr>
                                     <th class="wd-15p border-bottom-0">id</th>
                                     <th class="wd-15p border-bottom-0">key</th>
-                                    @foreach (config('app.locales') as $locale)
-                                        <th class="wd-15p border-bottom-0">{{ $locale }}</th>
-                                    @endforeach
+                                    <th class="wd-15p border-bottom-0">Content_{{ config('app.locale') }}</th>
                                     <th class="wd-15p border-bottom-0">Control</th>
                                 </tr>
                             </thead>
@@ -118,10 +101,7 @@
                                     <tr>
                                         <td>{{ $content->id }}</td>
                                         <td>{{ $content->key }}</td>
-                                        <td>{{ $content->GetContent('en') }}</td>
-                                        <td>{{ $content->GetContent('it') }}</td>
-                                        <td>{{ $content->GetContent('fr') }}</td>
-                                        <td>{{ $content->GetContent('de') }}</td>
+                                        <td>{{ $content->content }}</td>
                                         <td>
                                             <a type="button" onclick="SelectElemnt({{ $content }})"
                                                 class="text-white btn btn-primary btn-sm" data-target="#modalQuill"
@@ -174,20 +154,13 @@
 
     <script>
         function SelectElemnt(element) {
-            console.log(element.content);
             let input_Id = document.getElementById('input_Id');
             let input_Key = document.getElementById('input_Key');
-            let input_English = document.getElementById('input_English');
-            let input_Italian = document.getElementById('input_Italian');
-            let input_French = document.getElementById('input_French');
-            let input_German = document.getElementById('input_German');
+            let input_English = document.getElementById('input_content');
 
             input_Id.value = element.id;
             input_Key.value = element.key;
-            input_English.value = element.content['en'];
-            input_Italian.value = element.content['it'];
-            input_French.value = element.content['fr'];
-            input_German.value = element.content['de'];
+            input_English.value = element.content["@php echo config('app.locale'); @endphp"];
         }
     </script>
 @endsection

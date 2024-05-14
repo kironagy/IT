@@ -56,10 +56,10 @@
                                 <div class="dz-info">
 
                                     <h4 class="dz-title">
-                                        <a href="{{ route('blog_details', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
+                                        <a>{{ $blog->title }}</a>
                                     </h4>
                                     <p>{{ Str::limit($blog->description, 100) }}</p>
-                                    <a href="{{ route('blog_details', ['id' => $blog->id]) }}" class="btn btn-primary">Read
+                                    <a href="{{ url("/blog/{$blog->id}") }}" class="btn btn-primary">Read
                                         More
                                     </a>
                                 </div>

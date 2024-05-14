@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,8 +15,9 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = blog::all();
+        $categories = Category::all();
 
-        return view('dashboard.blogs.blogs', compact('blogs'));
+        return view('dashboard.blogs.blogs', compact('blogs', 'categories'));
     }
 
     public function getBlogs()
@@ -52,10 +54,11 @@ class BlogController extends Controller
         ]);
 
         $file = $request->file('img')->store('blog_images', 'public');
-
         $blog = blog::create([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
+            'category' => $request['category'],
+            'isGalary' => $request['isGalary'] ? true : false,
             'img' => $file,
             'content' => $request['editordata'],
             'created_by' => Auth::user()->name,
@@ -91,10 +94,18 @@ class BlogController extends Controller
      */
     public function update(Request $request, blog $blog)
     {
-        blog::where('id', 'LIKE', $request['id'])->first()->update([
-            'title' => $request['title'],
-            'description' => $request['description'],
-            'content' => $request['editordata'],
+
+        $blog = blog::where('id', 'LIKE', $request['id'])->first();
+        $title = $blog->title = $request['title'] ?? $blog->title;
+        $description = $blog->description = $request['description'] ?? $blog->description;
+        $content = $blog->content = $request['editordata'] ?? $blog->content;
+        $blog->update([
+            'title' => $title,
+            'description' => $description,
+            'content' => $content,
+            'isGalary' => $request['isGalary'] ? true : false,
+            'category' => $request['category'],
+
         ]);
         \session()->flash('success', 'Edit Done');
 

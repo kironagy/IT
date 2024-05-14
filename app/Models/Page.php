@@ -11,9 +11,9 @@ class Page extends Model
     use HasFactory;
     use HasTranslations;
 
-    public $translatable = ['content'];
-
     protected $fillable = ['key', 'content'];
+
+    public $translatable = ['content'];
 
     public function GetContent($lang = null)
     {

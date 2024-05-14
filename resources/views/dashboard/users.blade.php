@@ -148,7 +148,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="my-auto mb-0 content-title">Custom Text</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
+                <h4 class="my-auto mb-0 content-title">Users</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
                     Home
                     Page</span>
             </div>
@@ -180,7 +180,7 @@
             <div class="card">
                 <div class="pb-0 card-header ">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">Custom Text</h4>
+                        <h4 class="card-title mg-b-0">Users</h4>
                     </div>
                     <button class="mt-4 btn btn-main-primary" type="submit" data-target="#addUser"
                         data-toggle="modal">Add New User</button>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\blog;
+use App\Models\Category;
 use App\Models\Galary;
 use Illuminate\Http\Request;
 
@@ -13,8 +15,10 @@ class GalaryController extends Controller
     public function index()
     {
         $imgs = Galary::all();
+        $categories = Category::all();
+        $blogs = blog::all();
 
-        return view('dashboard.galary.galary', \compact('imgs'));
+        return view('dashboard.galary.galary', \compact('imgs', 'categories', 'blogs'));
     }
 
     /**
@@ -30,12 +34,9 @@ class GalaryController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('img')->store('', 'public');
         Galary::create([
-            'img' => $file,
-            'title' => $request['title'],
-            'section' => $request['section'],
-            'price' => $request['price'],
+            'blog_id' => $request['blog'],
+            'category_id' => $request['section'],
         ]);
         \session()->flash('success', 'Add Img Done');
 

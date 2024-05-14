@@ -9,5 +9,10 @@ class Galary extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['img', 'title', 'section', 'price'];
+    protected $fillable = ['blog_id', 'category_id'];
+
+    public function blogs()
+    {
+        return $this->hasMany(blog::class, 'blog_id', 'id');
+    }
 }

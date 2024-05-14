@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
 
     //    Pages Dashboard
-    Route::get('/', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+    //     Route::get('/', function () {
+    //         return view('dashboard.index');
+    //     })->name('dashboard');
+    Route::get('/', [PageController::class, 'index']);
 
     Route::get('/customText/Home', [PageController::class, 'index'])->name('admin.custom-text.home');
 
@@ -26,6 +27,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
 
     Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
+    Route::post('/category/update', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::post('/category/destory', [CategoryController::class, 'destroy'])->name('admin.category.destory');
 
     Route::post('/customText/Home', [PageController::class, 'update'])->name('admin.custom-text.update');
@@ -45,9 +47,9 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::post('/team/store', [\App\Http\Controllers\TeamController::class, 'store'])->name('admin.team.store');
     Route::post('/team/destroy', [\App\Http\Controllers\TeamController::class, 'destroy'])->name('admin.team.destroy');
     // Galary
-    Route::get('/galary', [\App\Http\Controllers\GalaryController::class, 'index'])->name('admin.galary');
-    Route::post('/galary/store', [\App\Http\Controllers\GalaryController::class, 'store'])->name('admin.galary.store');
-    Route::post('/galary/destroy', [\App\Http\Controllers\GalaryController::class, 'destroy'])->name('admin.galary.destroy');
+    // Route::get('/galary', [\App\Http\Controllers\GalaryController::class, 'index'])->name('admin.galary');
+    // Route::post('/galary/store', [\App\Http\Controllers\GalaryController::class, 'store'])->name('admin.galary.store');
+    // Route::post('/galary/destroy', [\App\Http\Controllers\GalaryController::class, 'destroy'])->name('admin.galary.destroy');
 
     /////////////////
     Route::get('/blog_details', function () {

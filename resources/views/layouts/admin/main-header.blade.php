@@ -20,8 +20,21 @@
 
         </div>
         <div class="main-header-right">
-
-            <div class="ml-auto nav nav-item navbar-nav-right">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="localeDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ LaravelLocalization::getCurrentLocaleNative() }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="localeDropdownMenuButton">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="ml-auto nav nav-item navbar-nav-right ">
 
 
                 <div class="nav-item full-screen fullscreen-button">
@@ -71,3 +84,4 @@
     </div>
 </div>
 <!-- /main-header -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

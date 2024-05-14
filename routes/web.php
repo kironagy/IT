@@ -41,6 +41,8 @@ Route::group(
         Route::post('/page/create', [PageController::class, 'store']);
 
         Route::resource('pages', PageController::class);
+        require __DIR__.'/dashboard.php';
+
     });
 
 Route::middleware('auth')->group(function () {
@@ -48,4 +50,3 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-require __DIR__.'/dashboard.php';

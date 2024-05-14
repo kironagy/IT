@@ -29,6 +29,7 @@
             style="background-image: url(assets/images/banner/bnr3.jpg);">
             <div class="container">
                 <div class="dz-bnr-inr-entry">
+                    <img width="300px" height="300px" src="{{ asset('storage/' . $blog->img) }}" alt="{{ $blog->title }}">
                     <h1>{{ $blog->title }}</h1>
                     <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
                         <ul class="breadcrumb">

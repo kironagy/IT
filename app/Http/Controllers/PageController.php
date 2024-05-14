@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\blog;
 use App\Models\Category;
 use App\Models\Galary;
 use App\Models\Page;
@@ -55,12 +56,12 @@ class PageController extends Controller
     {
         $categories = Category::all();
         $galaries = Galary::all();
+        $blogs = blog::all()->where('isGalary', true);
         $img1 = Photo::where('id', 'LIKE', 1)->first();
         $img2 = Photo::where('id', 'LIKE', 2)->first();
-
         // return \json_decode($page);
 
-        return view('index', \compact('categories', 'img1', 'img2', 'galaries'));
+        return view('index', \compact('categories', 'img1', 'img2', 'galaries', 'blogs'));
     }
 
     /**
@@ -77,21 +78,18 @@ class PageController extends Controller
     public function update(Request $request, Page $page)
     {
         try {
-            $content = [
-                'en' => $request['English'],
-                'ar' => $request['Italian'],
-                'fr' => $request['French'],
-                'it' => $request['German'],
-            ];
-            Page::where('id', 'LIKE', $request->id)->first()->update([
+            $page = Page::findOrFail($request->id)->first();
+            $content = $page->content = $request['content'] ?? $page->content;
+            $page->update([
                 'content' => $content,
             ]);
             session()->flash('success', 'Save Successfully');
 
-            return \redirect()->back();
         } catch (ErrorException $error) {
             session()->flash('error', 'Error :'.$error->getMessage());
         }
+
+        return \redirect()->back();
 
     }
 

@@ -17,7 +17,7 @@
         #portfolio .list-style .list-group-item {
             cursor: pointer;
             border: .1px solid #4885ED;
-            width: 56px;
+            width: fit-content;
             height: 30px;
             display: flex;
             justify-content: center;
@@ -58,11 +58,11 @@
                 color: white;
 
                 &::after {
-                    width: 50px;
+                    width: 50%;
                 }
 
                 &::before {
-                    width: 50px;
+                    width: 50%;
                 }
             }
         }
@@ -627,20 +627,23 @@
                 <div>
                     <ul class="list-group list-group-horizontal list-style">
                         <li class="list-group-item active" data-filter="all">All</li>
-                        <li class="list-group-item" data-filter="app">App</li>
-                        <li class="list-group-item" data-filter="photo">Photo</li>
-                        <li class="list-group-item" data-filter="web">Web</li>
+
+                        @isset($categories)
+                            @foreach ($categories as $category)
+                                <li class="list-group-item" data-filter="{{ $category->title }}">{{ $category->title }}</li>
+                            @endforeach
+                        @endisset
                     </ul>
                 </div>
-                <div class="products-cards  filter-items " id="gallery">
+                <div class="products-cards filter-items " id="gallery">
 
-                    @isset($galaries)
-                        @foreach ($galaries as $galary)
-                            <div class="products-card all  {{ $galary->section }}">
+                    @isset($blogs)
+                        @foreach ($blogs as $blog)
+                            <div class="products-card all {{ $blog->category }}">
                                 <div class="img-card">
-                                    <img src="{{ asset("storage/{$galary->img}") }}" alt=""></img>
+                                    <img src="{{ asset("storage/{$blog->img}") }}" alt=""></img>
                                     <div class="icon-card">
-                                        <ul>
+                                        {{-- <ul>
                                             <li>
                                                 <a href="#">
                                                     +
@@ -656,16 +659,17 @@
                                                     +
                                                 </a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </div>
                                 </div>
-                                <h2>{{ $galary->title }}</h2>
+                                {{-- <h2>{{ $blog->section }}</h2> --}}
+                                <h2>{{ $blog->title }}</h2>
                                 <div class="price-card">
-                                    <span>{{ $galary->price }}</span>
+                                    <span>{{ $blog->price }}</span>
                                 </div>
 
-                                <a href="#" class="btn-card">
-                                    <FaCartArrowDown /> Add to cart
+                                <a href="{{ url("/blog/{$blog->id}") }}" class="btn-card">
+                                    <FaCartArrowDown /> Show More
                                 </a>
                             </div>
                         @endforeach

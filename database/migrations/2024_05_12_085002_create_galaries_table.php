@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('galaries', function (Blueprint $table) {
             $table->id();
-            $table->string('img');
-            $table->string('section');
-            $table->string('title');
-            $table->string('price');
+            $table->foreignId('blog_id')->constrained('blogs', 'id')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories', 'id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

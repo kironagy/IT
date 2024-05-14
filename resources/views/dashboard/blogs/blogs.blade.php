@@ -57,6 +57,8 @@
                                     <th class="wd-15p border-bottom-0">id</th>
                                     <th class="wd-15p border-bottom-0">Title</th>
                                     <th class="wd-15p border-bottom-0">Description</th>
+                                    <th class="wd-15p border-bottom-0">category</th>
+                                    <th class="wd-15p border-bottom-0">in Galary</th>
                                     <th class="wd-15p border-bottom-0">Img</th>
                                     <th class="wd-15p border-bottom-0">Controll</th>
                                 </tr>
@@ -67,6 +69,8 @@
                                         <td>{{ $blog->id }}</td>
                                         <td>{{ $blog->title }}</td>
                                         <td>{{ $blog->description }}</td>
+                                        <td>{{ $blog->category }}</td>
+                                        <td>{{ $blog->isGalary ? 'Yes' : 'No' }}</td>
                                         <td>
                                             <img width="40px" height="40px" style="object-fit: cover"
                                                 src="{{ asset("storage/{$blog->img}") }}">
@@ -111,8 +115,30 @@
                                 <input id='title' name="title" class="form-control" type='text'
                                     placeholder="Title">
                             </div>
+                            <select name='category' class="my-3 form-control select2-no-search">
+                                <option label="Choose category">
+                                </option>
+                                <option value="all">
+                                    All
+                                </option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->title }}">
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <select name='isGalary' class="my-3 form-control select2-no-search">
+                                <option label="Show in Galary">
+                                </option>
+                                <option value="1">
+                                    Yes
+                                </option>
+                                <option value="0">
+                                    No
+                                </option>
+                            </select>
                             <div>
-                                <label>Description</label>
+                                <label>description</label>
                                 <input id='description' name="description" class="form-control" type='text'
                                     placeholder="description">
                             </div>
@@ -154,6 +180,28 @@
                                 <input id='edit_title' name="title" class="form-control" type='text'
                                     placeholder="Title">
                             </div>
+                            <select name='category' id='Category' class="my-3 form-control select2-no-search">
+                                <option label="Choose category">
+                                </option>
+                                <option value="all">
+                                    All
+                                </option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->title }}">
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <select name='isGalary' id="isGalary" class="my-3 form-control select2-no-search">
+                                <option label="Show in Galary">
+                                </option>
+                                <option value="1">
+                                    Yes
+                                </option>
+                                <option value="0">
+                                    No
+                                </option>
+                            </select>
                             <div>
                                 <label>Description</label>
                                 <input id='edit_description' name="description" class="form-control" type='text'
@@ -263,12 +311,14 @@
             let edit_id = document.getElementById('edit_id');
             let id_user = document.getElementById('edit_title');
             let input_Id = document.getElementById('edit_description');
+            let isGalary = document.getElementById('isGalary');
+            let Category = document.getElementById('Category');
             let input_content = document.getElementById('');
             edit_id.value = user.id;
-            id_user.value = user.title;
-            input_Id.value = user.description;
-            $('#summernote2').val('Test');
-            console.log(user);
+            isGalary.value = user.isGalary;
+            Category.value = user.category;
+            id_user.value = user.title["@php echo config('app.locale'); @endphp"];
+            input_Id.value = user.description['@php echo config('app.locale'); @endphp'];
         }
     </script>
 @endsection

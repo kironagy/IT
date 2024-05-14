@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('content');
+            $table->json('title')->nullable();
+            $table->json('description')->nullable();
+            $table->text('category')->nullable();
+            $table->json('content')->nullable();
             $table->string('img');
             $table->string('created_by');
+            $table->boolean('isGalary')->default(false);
             $table->timestamps();
         });
     }

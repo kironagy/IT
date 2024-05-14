@@ -27,7 +27,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Pages</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="my-auto mb-0 content-title">Pages</h4><span class="mt-1 mb-0 mr-2 text-muted tx-13">/
                     blogs</span>
             </div>
         </div>
@@ -48,37 +48,31 @@
                     </div>
                     <div class="modal-body pd-0">
                         <div class="gap-2 p-2 ql-wrapper ql-wrapper-modal h-fit ">
-                            <div>
-                                <label>Title</label>
-                                <input id='title' name="title" class="form-control my-3" type='text'
-                                    placeholder="Title">
-                            </div>
-                            <div>
-                                <label>Price</label>
-                                <input id='price' name="price" class="form-control my-3" type='text'
-                                    placeholder="Price Ex: 350">
-                            </div>
-                            <select name='section' class="form-control select2-no-search my-3">
-                                <option label="Choose one">
+                            <select name='blog' class="my-3 form-control select2-no-search">
+                                <option label="Choose Blog">
+                                </option>
+                                @foreach ($blogs as $blog)
+                                    <option value="{{ $blog->id }}">
+                                        {{ $blog->title }}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                            <select name='section' class="my-3 form-control select2-no-search">
+                                <option label="Choose Section">
                                 </option>
                                 <option value="all">
                                     All
                                 </option>
-                                <option value="app">
-                                    App
-                                </option>
-                                <option value="photo">
-                                    Photo
-                                </option>
-                                <option value="web">
-                                    Web
-                                </option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+
 
                             </select>
-                            <div>
-                                <label>Upload img</label>
-                                <input id='img' name="img" class="form-control" type='file'>
-                            </div>
+
                         </div>
                     </div>
                     <div class="modal-footer pd-20">

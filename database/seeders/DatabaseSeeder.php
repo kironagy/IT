@@ -177,7 +177,19 @@ class DatabaseSeeder extends Seeder
         [
             "key"=>"img_2",
             "img_path"=>""
-        ]
+        ],
+        [
+            "key"=>"img_2",
+            "img_path"=>""
+        ],
+        [
+            "key"=>"img_2",
+            "img_path"=>""
+        ],
+        [
+            "key"=>"img_2",
+            "img_path"=>""
+        ],
         ];
 
     public function run(): void
