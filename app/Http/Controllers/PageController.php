@@ -59,9 +59,12 @@ class PageController extends Controller
         $blogs = blog::all()->where('isGalary', true);
         $img1 = Photo::where('id', 'LIKE', 1)->first();
         $img2 = Photo::where('id', 'LIKE', 2)->first();
+        $img3 = Photo::where('id', 'LIKE', 3)->first();
+        $img4 = Photo::where('id', 'LIKE', 4)->first();
+        $img5 = Photo::where('id', 'LIKE', 5)->first();
         // return \json_decode($page);
 
-        return view('index', \compact('categories', 'img1', 'img2', 'galaries', 'blogs'));
+        return view('index', \compact('categories', 'img1', 'img2', 'img3', 'img4', 'img5', 'galaries', 'blogs'));
     }
 
     /**

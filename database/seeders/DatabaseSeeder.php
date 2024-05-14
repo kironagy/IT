@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Photo;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -123,6 +122,60 @@ class DatabaseSeeder extends Seeder
             ],
         ],
         [
+            'key' => 'work_card1_title',
+            'content' => [
+                'en' => 'Regiter Your Account',
+                'fr' => 'Regiter Your Account',
+                'de' => 'Regiter Your Account',
+                'it' => 'Regiter Your Account',
+            ],
+        ],
+        [
+            'key' => 'work_card2_title',
+            'content' => [
+                'en' => 'Regiter Your Account',
+                'fr' => 'Regiter Your Account',
+                'de' => 'Regiter Your Account',
+                'it' => 'Regiter Your Account',
+            ],
+        ],
+        [
+            'key' => 'work_card3_title',
+            'content' => [
+                'en' => 'Regiter Your Account',
+                'fr' => 'Regiter Your Account',
+                'de' => 'Regiter Your Account',
+                'it' => 'Regiter Your Account',
+            ],
+        ],
+        [
+            'key' => 'work_card1_description',
+            'content' => [
+                'en' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'fr' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'de' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'it' => 'There are many variations of passages of Lorem Ipsum available, but',
+            ],
+        ],
+        [
+            'key' => 'work_card2_description',
+            'content' => [
+                'en' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'fr' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'de' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'it' => 'There are many variations of passages of Lorem Ipsum available, but',
+            ],
+        ],
+        [
+            'key' => 'work_card3_description',
+            'content' => [
+                'en' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'fr' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'de' => 'There are many variations of passages of Lorem Ipsum available, but',
+                'it' => 'There are many variations of passages of Lorem Ipsum available, but',
+            ],
+        ],
+        [
             'key' => 'footer_links',
             'content' => [
                 'en' => 'Useful Links',
@@ -167,30 +220,31 @@ class DatabaseSeeder extends Seeder
                 'it' => 'Sign up to our archi. point to recent updates & office',
             ],
         ],
+
     ];
 
     private $Photo = [
         [
-            "key"=>"img_1",
-            "img_path"=>""
+            'key' => 'img_1',
+            'img_path' => '',
         ],
         [
-            "key"=>"img_2",
-            "img_path"=>""
+            'key' => 'img_2',
+            'img_path' => '',
         ],
         [
-            "key"=>"img_2",
-            "img_path"=>""
+            'key' => 'img_2',
+            'img_path' => '',
         ],
         [
-            "key"=>"img_2",
-            "img_path"=>""
+            'key' => 'img_2',
+            'img_path' => '',
         ],
         [
-            "key"=>"img_2",
-            "img_path"=>""
+            'key' => 'img_2',
+            'img_path' => '',
         ],
-        ];
+    ];
 
     public function run(): void
     {

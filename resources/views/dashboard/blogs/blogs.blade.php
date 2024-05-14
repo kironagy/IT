@@ -313,7 +313,6 @@
             let input_Id = document.getElementById('edit_description');
             let isGalary = document.getElementById('isGalary');
             let Category = document.getElementById('Category');
-            let input_content = document.getElementById('');
             edit_id.value = user.id;
             isGalary.value = user.isGalary;
             Category.value = user.category;
